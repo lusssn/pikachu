@@ -9,18 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var HeroDetailComponent = (function () {
-    function HeroDetailComponent() {
+var mock_contacts_1 = require('../config/mock-contacts');
+var ContactListsService = (function () {
+    function ContactListsService() {
+        this._selectedItem = mock_contacts_1.CONTACTS[0];
     }
-    HeroDetailComponent = __decorate([
-        core_1.Component({
-            selector: 'hero-detail',
-            template: "\n\t<div *ngIf=\"hero1\">\n\t\t<h2>{{hero1.name}} </h2>\n\t\t<div>\n\t\t\t<label>id: </label>{{hero1.id}}\n\t\t</div>\n\t\t<div>\n\t\t\t<label>name: </label>\n\t\t\t<input [(ngModel)]=\"hero1.name\"  placeholder=\"name\">\n\t\t</div>\n\t</div>\n\t",
-            inputs: ['hero1']
-        }), 
+    ContactListsService.prototype.getSelectedItem = function () {
+        return this._selectedItem;
+    };
+    ContactListsService.prototype.setSelectedItem = function (item) {
+        this._selectedItem = item;
+    };
+    ContactListsService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], HeroDetailComponent);
-    return HeroDetailComponent;
+    ], ContactListsService);
+    return ContactListsService;
 }());
-exports.HeroDetailComponent = HeroDetailComponent;
-//# sourceMappingURL=hero-detail.component.js.map
+exports.ContactListsService = ContactListsService;
+//# sourceMappingURL=contact-lists.service.js.map
