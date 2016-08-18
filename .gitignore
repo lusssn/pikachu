@@ -12,3 +12,4 @@ node_modules
 
 # Sass cache directory
 app-sass-cli/.sass-cache
+app-sass-cli/app-sass/.sass-cache
