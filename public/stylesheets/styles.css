@@ -58,7 +58,7 @@ body {
   font-family: "Microsoft YaHei", Arial, sans_serif;
 }
 
-div, a, ul, li, table, thead, th, tr, td, tbody, input, textarea {
+div, a, ul, li, table, thead, th, tr, td, tbody, input, textarea, label {
   box-sizing: border-box;
 }
 
@@ -138,6 +138,16 @@ a {
   background-color: #FFFFFF;
 }
 
+.form_input:focus {
+  color: #333333;
+  box-shadow: 0 0 4px rgba(45, 64, 81, 0.3);
+}
+
+.form_input_err {
+  color: #333333;
+  border: 1px solid #F26C4F;
+}
+
 .nav_list {
   display: inline-block;
   border: 1px solid #CCCCCC;
@@ -175,4 +185,50 @@ a {
 
 .item_content {
   position: absolute;
+}
+
+.detail_board {
+  position: relative;
+  width: 280px;
+  height: 180px;
+  padding: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 16px;
+  color: #E1E1E1;
+}
+
+.borad_item {
+  padding: 8px 0;
+}
+.borad_item label {
+  display: inline-block;
+  width: 80px;
+  text-align: right;
+  padding-right: 20px;
+}
+
+.board_bkg {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: .9;
+  background-color: #333333;
+  filter: alpha(opacity=90);
+  -webkit-opacity: .9;
+  -moz-opacity: .9;
+}
+
+.board_decorator {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-width: 20px;
+  border-style: solid;
+  border-color: #333333 #FFFFFF #FFFFFF #333333;
 }

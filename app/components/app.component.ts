@@ -10,8 +10,30 @@ import { ContactListsComponent } from './contact-lists.component';
 	template: `
 	<div class="title1">{{title}}</div>
 	<div class="my_app">
-		<contact-lists [lists]="contacts"></contact-lists>
-		<form-group class="form_group"></form-group>
+		<contact-lists [lists]="contacts" (selected)="onSelectChange($event)"></contact-lists>
+		
+		<div class="detail_board">
+			<div class="board_bkg"></div>
+			<div class="borad_item">
+				<label>Name :</label>
+				{{selectedItem.name}}
+			</div>
+			<div class="borad_item">
+				<label>Tel :</label>
+				{{selectedItem.tel}}
+			</div>
+			<div class="borad_item">
+				<label>E-mail :</label>
+				{{selectedItem.email}}
+			</div>
+			<div class="borad_item">
+				<label>Address :</label>
+				{{selectedItem.address}}
+			</div>
+			<div class="board_decorator"></div>
+		</div>
+
+		<form-group class="form_group" [editItem]="selectedItem"></form-group>
 	</div>
 	`,
 	styles: [`
@@ -20,10 +42,6 @@ import { ContactListsComponent } from './contact-lists.component';
 		flex-flow: row nowrap;
 		justify-content: space-around;
 	}
-	form-group, contact-lists {
-		display: block;
-		padding-top: 20px;
-	} 
 	form-group {
 		width: 400px;
 	}
@@ -31,7 +49,21 @@ import { ContactListsComponent } from './contact-lists.component';
 })
 export class AppComponent {
 	public title = '通讯录';
-
+	public selectedItem: Contact;
 	public contacts = CONTACTS;
+
+	constructor() {
+		this.selectedItem = {
+			id: 0,
+			name: "",
+			tel: "",
+			email: "",
+			address: ""
+		}
+	}
+
+	onSelectChange(item) {
+		this.selectedItem = item;
+	}
 }
 
