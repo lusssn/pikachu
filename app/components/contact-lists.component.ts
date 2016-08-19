@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { Contact } from '../modules/contact';
+import { Contact, ContactInit } from '../modules/contact';
+import { ContactListsService } from '../services/contact-lists.service';
 
 @Component({
 	selector: 'contact-lists',
@@ -8,11 +9,9 @@ import { Contact } from '../modules/contact';
 		<li class="list_item list_item_lg list_item_static" 
 			*ngFor="let item of lists"
 			[class.list_item_selected]="item === _selectedItem"
-			(click)="onSelect(item)"
-			(mouseenter)="onEnter(item)"
-			(mouseleave)="onLeave()"> 
+			(mouseenter)="onEnter(item)"> 
 			<span>{{item.id}}</span>
-			{{item.name}}<a class="btn_edit" *ngIf="item === _editItem" href="#">编辑</a>
+			{{item.name}}<a class="btn_edit" *ngIf="item === _selectedItem" href="#" (click)="onEdit()">编辑</a>
 		</li>
 		<li class="list_item list_item_lg list_item_static"
 			(click)="onAdd()">
@@ -33,24 +32,22 @@ import { Contact } from '../modules/contact';
 	inputs: ['lists']
 })
 export class ContactListsComponent {
-	@Output() selected = new EventEmitter();
-	@Output() addNew = new EventEmitter();
-
-	public lists: Contact[];
-	private _editItem: Contact;
+	@Output() doContactList = new EventEmitter();
 	private _selectedItem: Contact;
 
-	onSelect(item: Contact) {
-		this._selectedItem = item;
-		this.selected.emit(this._selectedItem);
+	constructor(private _contactService: ContactListsService) {
+		this._selectedItem = this._contactService.getSelected();
 	}
 	onEnter(item: Contact) {
-		this._editItem = item;
+		this._contactService.setSelected(item);
+		this._selectedItem = this._contactService.getSelected();
+		this.doContactList.emit("selected");
 	}
-	onLeave() {
-		this._editItem = null;
+	onEdit() {
+		this.doContactList.emit("edit");
 	}
 	onAdd() {
-		this.addNew.emit("true");
+		this._selectedItem = this._contactService.resetSelected();
+		this.doContactList.emit("add");
 	}
 }

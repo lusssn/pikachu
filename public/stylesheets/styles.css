@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -108,6 +109,26 @@ a {
 
 .btn_company_disable {
   background-color: #ABB3B9;
+}
+
+.btn_cancel_static {
+  color: #707070;
+  /* 兼容 <IE10 */
+  FILTER: progid:DXImageTransform.Microsoft.Gradient(startColorStr=#FFFFFF, endColorStr=#F5F5F5);
+  border: 1px solid #CCCCCC;
+  background: -webkit-linear-gradient(top, #FFFFFF, #F5F5F5);
+  background: -moz-linear-gradient(top, #FFFFFF, #F5F5F5);
+  background: -o-linear-gradient(top, #FFFFFF, #F5F5F5);
+  background: -ms-linear-gradient(top, #FFFFFF, #F5F5F5);
+}
+.btn_cancel_static:hover {
+  border: 1px solid #C2C2C2;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+.btn_cancel_disable {
+  color: #C2C2C2;
+  border: 1px solid #CCCCCC;
 }
 
 .form_group .form_title {

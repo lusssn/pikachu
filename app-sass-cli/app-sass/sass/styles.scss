@@ -2,6 +2,7 @@
 
 @import "compass/reset";
 @import "variables";
+@import "mixins";
 
 body {
 	font-family: $ch;
@@ -51,6 +52,22 @@ a {
 }
 .btn_company_disable {
 	background-color: $dark_blue3;
+}
+.btn_cancel_static {
+	color: $grey2;
+	/* 兼容 <IE10 */
+
+	FILTER: progid:DXImageTransform.Microsoft.Gradient(startColorStr=#FFFFFF, endColorStr=#F5F5F5);
+	border: 1px solid $grey5;
+	@include c_t_l_gradient($white, $grey7);
+	&:hover {
+		border: 1px solid $grey4;
+		box-shadow: 0 2px 1px rgba(0, 0, 0, .1);
+	}
+}
+.btn_cancel_disable {
+	color: $grey4;
+	border: 1px solid $grey5;
 }
 // 表单
 .form_group {

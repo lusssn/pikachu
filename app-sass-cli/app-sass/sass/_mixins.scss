@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+// common top linear gradient
+@mixin c_t_l_gradient($startColor, $endColor) {
+	background: -webkit-linear-gradient(top, $startColor, $endColor);
+	background:    -moz-linear-gradient(top, $startColor, $endColor);
+	background:      -o-linear-gradient(top, $startColor, $endColor);
+	background:     -ms-linear-gradient(top, $startColor, $endColor);
+}
