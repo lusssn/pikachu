@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FORM_DIRECTIVES } from '@angular/forms';
 import { Contact, ContactInit } from '../modules/contact';
-import { ContactListsService } from '../services/contact-lists.service';
+import { ContactListService } from '../services/contact-list.service';
 
 @Component({
 	selector: 'form-group',
@@ -16,6 +16,7 @@ import { ContactListsService } from '../services/contact-lists.service';
 	<span class="form_title">Address</span>
 	<input class="form_input" type="text" [(ngModel)]="editItem.address">
 
+	<a *ngIf="!editItem.isNew" class="btn btn_company_static" href="#" (click)="onSave()">Save</a>
 	<a *ngIf="editItem.isNew" class="btn btn_company_static" href="#" (click)="onAdd()">Add</a>
 	<a class="btn btn_cancel_static" href="#" (click)="onCancel()">Cancel</a>
 	`
@@ -24,13 +25,15 @@ export class FormGroupComponent {
 	@Input() editItem: Contact;
 	@Output() doContactForm = new EventEmitter();
 	
-	constructor(private _contactService: ContactListsService) {	}
+	constructor(private _contactService: ContactListService) {	}
 
 	onCancel() {
-		// TODO
-		// 编辑状态下还原数据 
-		
 		this.doContactForm.emit("cancel");
+	}
+	onSave() {
+		this._contactService.setContactItem(this.editItem);
+		this._contactService.setSelected(this.editItem);
+		this.doContactForm.emit("save");
 	}
 	onAdd() {
 		let newItem = new ContactInit(this.editItem);

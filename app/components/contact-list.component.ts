@@ -1,13 +1,13 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { Contact, ContactInit } from '../modules/contact';
-import { ContactListsService } from '../services/contact-lists.service';
+import { ContactListService } from '../services/contact-list.service';
 
 @Component({
-	selector: 'contact-lists',
+	selector: 'contact-list',
 	template: `
 	<ul class="nav_list">
 		<li class="list_item list_item_lg list_item_static" 
-			*ngFor="let item of lists"
+			*ngFor="let item of contacts"
 			[class.list_item_selected]="item === _selectedItem"
 			(mouseenter)="onEnter(item)"> 
 			<span>{{item.id}}</span>
@@ -29,13 +29,13 @@ import { ContactListsService } from '../services/contact-lists.service';
 		text-decoration: none;
 	}
 	`],
-	inputs: ['lists']
+	inputs: ['contacts']
 })
-export class ContactListsComponent {
+export class ContactListComponent {
 	@Output() doContactList = new EventEmitter();
 	private _selectedItem: Contact;
 
-	constructor(private _contactService: ContactListsService) {
+	constructor(private _contactService: ContactListService) {
 		this._selectedItem = this._contactService.getSelected();
 	}
 	onEnter(item: Contact) {

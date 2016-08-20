@@ -3,7 +3,7 @@ import { Contact, ContactInit } from '../modules/contact';
 import { CONTACTS } from '../config/mock-contacts';
 
 @Injectable()
-export class ContactListsService {
+export class ContactListService {
 	private _selectedItem: Contact;
 	private _contactLists: Contact[];
 
@@ -34,6 +34,9 @@ export class ContactListsService {
 	}
 	getContactItem(index: number) {
 		return this._contactLists[index];
+	}
+	setContactItem(item: Contact) {
+		this._contactLists[item.id-1] = item;
 	}
 
 	getNewItem() {

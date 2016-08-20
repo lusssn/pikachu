@@ -14,3 +14,7 @@ node_modules
 .sass-cache
 app-sass-cli/.sass-cache
 app-sass-cli/app-sass/.sass-cache
+
+# Convert files
+app/*.js
+app/*.js.map
