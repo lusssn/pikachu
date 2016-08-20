@@ -18,3 +18,11 @@ app-sass-cli/app-sass/.sass-cache
 # Convert files
 app/*.js
 app/*.js.map
+app/components/*.js
+app/components/*.js.map
+app/config/*.js
+app/config/*.js.map
+app/modules/*.js
+app/modules/*.js.map
+app/services/*.js
+app/services/*.js.map
