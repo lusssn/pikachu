@@ -11,7 +11,7 @@ import { ContactListService } from '../services/contact-list.service';
 			[class.list_item_selected]="item === _selectedItem"
 			(mouseenter)="onEnter(item)"> 
 			<span>{{item.id}}</span>
-			{{item.name}}<a class="btn_edit" *ngIf="item === _selectedItem" href="#" (click)="onEdit()">编辑</a>
+			{{item.name}}<div class="btn_edit" *ngIf="item === _selectedItem" (click)="onEdit()">编辑</div>
 		</li>
 		<li class="list_item list_item_lg list_item_static"
 			(click)="onAdd()">

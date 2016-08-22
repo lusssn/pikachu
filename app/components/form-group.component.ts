@@ -1,11 +1,9 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { FORM_DIRECTIVES } from '@angular/forms';
 import { Contact, ContactInit } from '../modules/contact';
 import { ContactListService } from '../services/contact-list.service';
 
 @Component({
 	selector: 'form-group',
-	directives: [FORM_DIRECTIVES],
 	template: `
 	<span class="form_title">Name</span>
 	<input class="form_input" type="text" [(ngModel)]="editItem.name">
@@ -16,9 +14,9 @@ import { ContactListService } from '../services/contact-list.service';
 	<span class="form_title">Address</span>
 	<input class="form_input" type="text" [(ngModel)]="editItem.address">
 
-	<a *ngIf="!editItem.isNew" class="btn btn_company_static" href="#" (click)="onSave()">Save</a>
-	<a *ngIf="editItem.isNew" class="btn btn_company_static" href="#" (click)="onAdd()">Add</a>
-	<a class="btn btn_cancel_static" href="#" (click)="onCancel()">Cancel</a>
+	<div *ngIf="!editItem.isNew" class="btn btn_company_static" (click)="onSave()">Save</div>
+	<div *ngIf="editItem.isNew" class="btn btn_company_static" (click)="onAdd()">Add</div>
+	<div class="btn btn_cancel_static" (click)="onCancel()">Cancel</div>
 	`
 })
 export class FormGroupComponent {
