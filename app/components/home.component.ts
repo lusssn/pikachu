@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
 	selector: 'home',
-	template: '<h3>Welcome</h3>'
+	template: '<a class="btn_nav_tool" routerLink="/main">Contacts</a><h3>welcome</h3>'
 })
-export class HomeComponent { }
+export class HomeComponent { 
+
+}

@@ -6,19 +6,14 @@ import { ContactListService } from '../services/contact-list.service';
 	selector: 'main',
 	directives: [],
 	template: `
-	<div class="my_app">
-		<contact-list [contacts]="contacts" (doContactList)="onListChange($event)"></contact-list>
-		<detail-board [selectedItem]="selectedItem" class="detail_board"></detail-board>
-		<form-group class="form_group" 
-			*ngIf="editSignal" [editItem]="editItem"
-			(doContactForm)="onFormChange($event)"></form-group>
-	</div>
+	<div class="title1">{{title}}</div>
+	<contact-list [contacts]="contacts" (doContactList)="onListChange($event)"></contact-list>
+	<detail-board [selectedItem]="selectedItem" class="detail_board"></detail-board>
+	<form-group class="form_group" 
+		*ngIf="editSignal" [editItem]="editItem"
+		(doContactForm)="onFormChange($event)"></form-group>
 	`,
 	styles: [`
-	.my_app {
-		width: 1170px;
-		margin: 0 auto;
-	}
 	contact-lists, detail-board, form-group {
 		display: inline-block;
 		vertical-align: top;
@@ -30,6 +25,7 @@ import { ContactListService } from '../services/contact-list.service';
 	`],
 })
 export class MainComponent {
+	public title = '通讯录';
 	public selectedItem: Contact;
 	public editItem: Contact;
 	public editSignal = false;

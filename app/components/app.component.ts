@@ -3,11 +3,15 @@ import { Component } from '@angular/core';
 @Component({
 	selector: 'my-app',
 	template: `
-	<div class="title1">{{title}}</div>
-	<nav>
-		<a routerLink="/home">Home</a>
-		<a routerLink="/main">Contacts</a>
-	</nav>
+	<div class="top_nav_bar">
+		<div class="top_nav_wrapper">
+			<a class="btn_nav_tool active" routerLink="/home">
+				Home
+				<span class="nav_tool_triangle"></span>
+			</a>
+			<a class="btn_nav_tool" routerLink="/main">Contacts</a>
+		</div>
+	</div>
 	<router-outlet></router-outlet>
 	`
 })
