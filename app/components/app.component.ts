@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 				Home
 				<span class="nav_tool_triangle"></span>
 			</a>
-			<a class="btn_nav_tool" routerLink="/main">Contacts</a>
+			<a class="btn_nav_tool" routerLink="/contact-main">Contacts</a>
 		</div>
 	</div>
 	<router-outlet></router-outlet>

@@ -3,8 +3,7 @@ import { Contact, ContactInit } from '../modules/contact';
 import { ContactListService } from '../services/contact-list.service';
 
 @Component({
-	selector: 'main',
-	directives: [],
+	selector: 'contact-main',
 	template: `
 	<div class="title1">{{title}}</div>
 	<contact-list [contacts]="contacts" (doContactList)="onListChange($event)"></contact-list>
@@ -24,7 +23,7 @@ import { ContactListService } from '../services/contact-list.service';
 	}
 	`],
 })
-export class MainComponent {
+export class ContactMainComponent {
 	public title = '通讯录';
 	public selectedItem: Contact;
 	public editItem: Contact;

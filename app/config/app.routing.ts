@@ -1,5 +1,5 @@
 import { Routes, RouterModule } from '@angular/router';
-import { MainComponent } from '../components/main.component';
+import { ContactMainComponent } from '../components/contact-main.component';
 import { HomeComponent } from '../components/home.Component';
 
 const appRoutes: Routes = [
@@ -13,8 +13,8 @@ const appRoutes: Routes = [
 		component: HomeComponent
 	},
 	{
-		path: 'main',
-		component: MainComponent
+		path: 'contact-main',
+		component: ContactMainComponent
 	}
 ];
 export const routing = RouterModule.forRoot(appRoutes);
