@@ -6,8 +6,6 @@
 
 body {
 	font-family: $ch;
-	width: 1170px;
-	margin: 0 auto;
 }
 div, a, ul, li, table, thead, th, tr, td, tbody, input, textarea, label {
 	box-sizing: border-box;
@@ -18,6 +16,12 @@ a {
 	text-decoration: none;
 	color: inherit;
 }
+.container {
+	display: block;
+	width: 1170px;
+	margin: 0 auto;
+	padding-top: 40px;
+}
 // 导航条
  .top_nav_wrapper {
 	height: 100%;
@@ -26,6 +30,8 @@ a {
 }
 .top_nav_bar {
 	position: fixed;
+	left: 0;
+	top: 0;
 	z-index: 10;
 	width: 100%;
 	height: 40px;
