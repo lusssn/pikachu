@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Contact, ContactInit } from '../modules/contact';
 import { ContactListService } from '../services/contact-list.service';
 
@@ -23,16 +23,19 @@ import { ContactListService } from '../services/contact-list.service';
 	}
 	`],
 })
-export class ContactMainComponent {
+export class ContactMainComponent implements OnInit {
 	public title = '通讯录';
 	public selectedItem: Contact;
 	public editItem: Contact;
 	public editSignal = false;
 	public contacts: Contact[];
 
-	constructor(private _contactService: ContactListService) {
+	constructor(private _contactService: ContactListService) { }
+
+	ngOnInit() {
 		this.selectedItem = this._contactService.getSelected();
 		this.contacts = this._contactService.getContactLists();
+		console.log("ContactMainComponent OnInit...");
 	}
 
 	onListChange(signal) {

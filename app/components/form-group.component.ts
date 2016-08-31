@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
 import { Contact, ContactInit } from '../modules/contact';
 import { ContactListService } from '../services/contact-list.service';
 
@@ -19,11 +19,15 @@ import { ContactListService } from '../services/contact-list.service';
 	<div class="btn btn_cancel_static" (click)="onCancel()">Cancel</div>
 	`
 })
-export class FormGroupComponent {
+export class FormGroupComponent implements OnDestroy {
 	@Input() editItem: Contact;
 	@Output() doContactForm = new EventEmitter();
 	
-	constructor(private _contactService: ContactListService) {	}
+	constructor(private _contactService: ContactListService) { }
+
+	ngOnDestroy() {
+		console.log("FormGroupComponent OnDestroy...");
+	}
 
 	onCancel() {
 		this.doContactForm.emit("cancel");

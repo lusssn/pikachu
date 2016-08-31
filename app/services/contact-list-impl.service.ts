@@ -1,4 +1,4 @@
-import { Injectable, ReflectiveInjector } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { ContactListService } from './contact-list.service';
 import { Contact, ContactInit } from '../modules/contact';
 import { CONTACTS } from '../config/mock-contacts';
