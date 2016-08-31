@@ -11,6 +11,7 @@ import { FormGroupComponent } from '../components/form-group.component';
 import { HomeComponent } from '../components/home.component';
 
 import { ContactListService } from '../services/contact-list.service';
+import { ContactService } from '../services/contact-list-impl.service';
 
 @NgModule({
 	imports: [BrowserModule, FormsModule, routing],		
@@ -22,7 +23,9 @@ import { ContactListService } from '../services/contact-list.service';
 		FormGroupComponent,
 		HomeComponent
 	],
-	providers: [ContactListService],
+	providers: [
+		{ provide: ContactListService, useClass: ContactService }
+	],
 	bootstrap: [ AppComponent ]
 })
 export class AppModule {
