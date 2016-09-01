@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TelFormatPipe } from '../pipes/tel-format.pipe';
 
 @Component({
 	selector: 'detail-board',
@@ -10,7 +11,7 @@ import { Component } from '@angular/core';
 	</div>
 	<div class="borad_item">
 		<label>Tel :</label>
-		{{selectedItem.tel}}
+		{{selectedItem.tel | telformat}}
 	</div>
 	<div class="borad_item">
 		<label>E-mail :</label>
@@ -18,12 +19,11 @@ import { Component } from '@angular/core';
 	</div>
 	<div class="borad_item">
 		<label>Address :</label>
-		{{selectedItem.address}}
+		{{selectedItem.address | uppercase}}
 	</div>
 	<div class="board_decorator"></div>
 	`,
-	inputs: ['selectedItem']
+	inputs: ['selectedItem'],
+	pipes: [TelFormatPipe]
 })
-export class DetailBoardComponent {
-
-}
+export class DetailBoardComponent { }

@@ -26,3 +26,5 @@ app/modules/*.js
 app/modules/*.js.map
 app/services/*.js
 app/services/*.js.map
+app/pipes/*.js
+app/pipes/*.js.map

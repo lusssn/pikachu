@@ -10,9 +10,9 @@ export var CONTACTS: Contact[] = [
 	},
 	{
 		id: 2,
-		name: "Yann",
-		tel: "15851855732",
-		email: "Yann@126.com",
-		address: "shanghai"
+		name: "Pikachu",
+		tel: "13208591001",
+		email: "pikachu@126.com",
+		address: "forest, eastern suburbs"
 	}
 ];
